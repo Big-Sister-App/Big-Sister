@@ -1,10 +1,8 @@
-import csv
+import os
+import googlemaps
 import pandas as pd
 import sqlite3
-import gmaps
-from datetime import datetime
 
-API_KEY = "AIzaSyDnlcpfFnu9x8kS9rUoD3kaxauuqhdKi38"
 
 # DATABASE CONNECTIONS & SETUP
 #--------------------------------------------------------
@@ -21,7 +19,6 @@ cursor2.execute(createTable)
 #      (datetime.now(), "Harassment", "Some explanation can go here ig", "346 Huntington Avenue"))
 #  conn2.commit()
 
-
 # CONVERT DB FILE TO CSV
 #--------------------------------------------------------
 reports = pd.read_sql("SELECT * FROM reports", conn2)
@@ -34,18 +31,18 @@ df = reports_table.copy()
 
 # GEOCODING
 #--------------
-gmaps_key = googlemaps.Client(key=API_KEY) #comment this out if we make this code public
+gmaps_key = googlemaps.Client(key=os.environ['GMAPS_API_KEY'])
 
 # Convert address into longitude and latitude format
 def geocode_address(address):
     a = gmaps_key.geocode(address)
-    lat = a[0]["geometry"]["location"]["lat"] #latitude
-    long = a[0]["geometry"]["location"]["lng"] #longitude
+    lat = a[0]["geometry"]["location"]["lat"]
+    long = a[0]["geometry"]["location"]["lng"]
     return(lat, long)
     # print(f'Latitude: {str(lat)}, Longitude: {str(long)}')
 
-#apply geocoding function to physical location
+# apply geocoding function to physical location
 df['gc_address'] = df['location'].apply(geocode_address)
 print(df.head)
 
-marker_locations = df['gc_address'].values.tolist() #list of all lat,lng pairs
+marker_locations = df['gc_address'].values.tolist() #list of all lat, lng pairs
