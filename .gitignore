@@ -4,3 +4,6 @@ instance/
 
 # Environment variables:
 website/.env
+
+# Virtual Environment
+.venv/
