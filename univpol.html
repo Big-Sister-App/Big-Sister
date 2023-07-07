@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="univpol">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          // Get the select element
+          const selectElement = document.querySelector('#CollegeOrUniversity');
+
+          // Add an event listener for when an option is selected
+          selectElement.addEventListener('change', (event) => {
+              // Get the value of the selected option
+              const selectedValue = event.target.value;
+
+              // Update the window.location.href property to navigate to the selected page
+              window.location.href = selectedValue;
+          });
+      });
+  </script>
+    
+    <title> Find University Specific Police Resources</title>
+</head>
+
+<body>
+
+    <main>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Logo" >
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" tabindex="-1" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#map">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#project">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./report.html">Report</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        <div class="social-icon">
+                            <a href="#"><img src="img/nav-icon1.svg" alt="Icon"></a>
+                            <a href="#"><img src="img/nav-icon2.svg" alt="Icon"></a>
+                            <a href="#"><img src="img/nav-icon3.svg" alt="Icon"></a>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+        </nav>
+
+      
+ <!-- Projects -->
+   
+ <section class="univproject" id="project">
+  <div class="container">
+      <div class="row">
+          <div class="col-12 wow fadeIn" data-wow-duration="1.5s">
+              <h2>University Specific Police Resources</h2>
+              <p>Big Sister connects survivors of harassment or assault to their university specific police. Select your college or university from the dropdown menu to be connected to your University Campus Police. Below is a link to End Rape On Campuses website which provides a specific breakdown of the Title IX policy your university follows.</p>
+
+              <!-- Dropdown menu -->
+              <div class="form">
+                  <h2>Find Your University's Police</h2>
+                  <form>
+                    <select id="CollegeOrUniversity" name="CollegeOrUniversity">
+                      <option value="https://www.amherst.edu/campuslife/safety-security/police">Amherst College (413-542-2291)</option>
+                      <option value="https://www.babson.edu/about/campus-safety-security/campus-police/">Babson College (781-239-5555)</option>
+                      <option value="https://www.bentley.edu/offices/campus-police">Bentley University (781-891-3131)</option>
+                      <option value="https://the-bac.edu/about-the-bac/safety-security/police-services">Boston Architectural College (617-585-0211)</option>
+                      <option value="https://www.bc.edu/content/bc-web/offices/police.html">Boston College (617-552-4444)</option>
+                      <option value="https://www.bc.edu/content/bc-web/offices/police.html">Boston College Carroll School of Management (617-552-4313)</option>
+                      <option value="https://www.bc.edu/content/bc-web/offices/police.html">Boston College Law School (617-552-4444)</option>
+                      <option value="https://www.bc.edu/content/bc-web/offices/police.html">Boston College School of Social Work (617-552-4444)</option>
+                      <option value="https://www.bc.edu/content/bc-web/offices/police.html">Boston College School of Theology and Ministry (617-552-6500)</option>
+                      <option value="https://bostonconservatory.berklee.edu/campus-life/campus-safety">Boston Conservatory at Berklee (617-912-9191)</option>
+                      <option value="https://www.bu.edu/police/">Boston University (617-353-2121)</option>
+                      <option value="https://www.bu.edu/police/">Boston University College of Communication (617-353-3434)</option>
+                      <option value="https://www.bu.edu/police/">Boston University College of Fine Arts (617-353-2121)</option>
+                      <option value="https://www.bu.edu/police/">Boston University College of General Studies (617-353-2121)</option>
+                      <option value="https://www.bu.edu/police/">Boston University Questrom School of Business (617-353-3000)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Dental Medicine (617-358-0190)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Education (617-353-2105)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Law (617-353-2110)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Medicine (617-414-4444)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Public Health (617-358-4444)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Social Work (617-353-3750)</option>
+                      <option value="https://www.bu.edu/police/">Boston University School of Theology (617-353-3036)</option>
+                      <option value="https://www.brandeis.edu/publicsafety/">Brandies International Business School (781-736-5000)</option>
+                      <option value="https://www.brown.edu/about/administration/public-safety/police">Brown University (401-863-3322)</option>
+                      <option value="https://www.cambridgecollege.edu/campus-life/campus-safety-security">Cambridge College (617-873-0159)</option>
+                      <option value="https://www.clarku.edu/offices/campus-police/">Clark University (508-793-7575)</option>
+                      <option value="https://enc.edu/campus-safety/">Eastern Nazarene College (617-745-3911)</option>
+                      <option value="https://www.emerson.edu/departments/police-department">Emerson College (617-824-8888)</option>
+                      <option value="https://www.endicott.edu/student-life/campus-safety">Endicott College (978-232-2222)</option>
+                      <option value="https://www.framingham.edu/about-fsu/campus-resources/safety-security/police/index">Framingham State University (508-626-4911)</option>
+                      <option value="https://www.gordon.edu/campussafety">Gordon College (978-867-4444)</option>
+                      <option value="https://www.hbs.edu/about/campus-and-culture/campus-safety-security/Pages/default.aspx">Harvard Business School (617-495-1212)</option>
+                      <option value="https://hds.harvard.edu/life-community/campus-safety-security">Harvard Divinity School (617-495-5560)</option>
+                      <option value="https://gsas.harvard.edu/student-life/campus-safety-security">Harvard Graduate School of Arts and Sciences (617-495-5496)</option>
+                      <option value="https://www.gsd.harvard.edu/campus-safety/">Harvard Graduate School of Design (617-495-1212)</option>
+                      <option value="https://www.gse.harvard.edu/about/campus-safety-security">Harvard Graduate School of Education (617-495-5560)</option>
+                      <option value="https://www.hks.harvard.edu/about/campus-safety-security">Harvard Kennedy School (617-495-1796)</option>
+                      <option value="https://hls.harvard.edu/dept/police/">Harvard Law School (617-495-1212)</option>
+                      <option value="https://hms.harvard.edu/departments/hms-police">Harvard Medical School (617-432-1379)</option>
+                      <option value="https://hsdm.harvard.edu/policies-procedures/campus-safety-security">Harvard School of Dental Medicine (617-432-1414)</option>
+                      <option value="https://www.hsph.harvard.edu/campus-safety-security/">Harvard School of Public Health (617-432-1379)</option>
+                      <option value="https://lesley.edu/about/safety-security/police">Lesley University (617-349-8888)</option>
+                      <option value="https://massart.edu/about-massart/campus-safety">Massachusetts College of Art and Design (617-879-7800)</option>
+                      <option value="https://www.mcphs.edu/about-mcphs/campus-resources/campus-safety-and-security">MCPHS (617-879-2100)</option>
+                      <option value="https://police.mit.edu/">Massachusetts Institute of Technology (617-253-1212)</option>
+                      <option value="https://www.merrimack.edu/about/offices_services/safety_and_security/campus_safety.php">Merrimack College (978-837-5555)</option>
+                      <option value="https://www.mtholyoke.edu/campuspolice">Mount Holyoke College (413-538-2304)</option>
+                      <option value="https://necmusic.edu/security-and-safety">New England Conservatory of Music (617-585-1100)</option>
+                      <option value="https://www.northeastern.edu/nupd/">Northeastern University (617-373-2121)</option>
+                      <option value="https://www.providence.edu/safety/police-department">Providence College (401-865-2222)</option>
+                      <option value="https://www.regiscollege.edu/student-life/campus-safety-police">Regis College (781-768-7777)</option>
+                      <option value="https://www.salemstate.edu/about/administrative-offices/police-department">Salem State University (978-542-6111)</option>
+                      <option value="https://www.simmons.edu/campus-life/safety-security/police-services">Simmons University (617-521-1112)</option>
+                      <option value="https://www.smith.edu/about-smith/campus-police">Smith College (413-585-2490)</option>
+                      <option value="https://www.stonehill.edu/offices-services/campus-police/">Stonehill College (508-565-5555)</option>
+                      <option value="https://www.suffolk.edu/campus-life/campus-safety-police">Suffolk University (617-573-8111)</option>
+                      <option value="https://publicsafety.tufts.edu/police/">Tufts University (617-627-6911)</option>
+                      <option value="https://dental.tufts.edu/about/safety-security">Tufts University School of Dental Medicine (617-636-6610)</option>
+                      <option value="https://asegrad.tufts.edu/student-life/campus-safety">Tufts University School of Education (617-627-3395)</option>
+                      <option value="https://medicine.tufts.edu/about-us/administrative-offices/departments-and-services/public-safety">Tufts University School of Medicine (617-636-6610)</option>
+                      <option value="https://www.umb.edu/publicsafety">University of Massachusetts Boston (617-287-1212)</option>
+                      <option value="https://www.uri.edu/safety/police/">University of Rhode Island (401-874-2121)</option>
+                      <option value="https://www.wellesley.edu/police">Wellesley College (781-283-2121)</option>
+                      <option value="https://www.wheatoncollege.edu/about-wheaton-college/offices-services/public-safety/">Wheaton College (508-286-8213)</option>
+                      <option value="https://security.williams.edu/">Williams College (413-597-4444)</option>
+                      <option value="https://www.wpi.edu/offices/public-safety">Worcester Polytechnic Institute (508-831-5555)</option>
+                  
+            </select>
+          </form>
+                        
+
+<!-- Drop Down Menu -->
+
+
