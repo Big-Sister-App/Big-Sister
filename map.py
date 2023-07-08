@@ -133,4 +133,26 @@ class LocationCuration:
         Args:
             json_filename (str): the name of the outputted json file
         """
-        self.df.to_json(json_filename, orient='split', compression='infer', index='true')
+        self.df.to_json(LocationCuration.db_dir + json_filename, orient='split', compression='infer', index='true')
+
+
+    def geocode_and_export(self):
+        """
+        Geocodes the database data and exports it as a json file
+        """
+        self.geocode_locations(show_result=True)
+        try:
+            self.convert_df_to_json()
+            print("JSON File created successfully.")
+        except:
+            print("JSON File could not be created.")
+
+
+
+def run():
+    """
+    Runs the LocationCuration tool
+    """
+    geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
+    geocoder.geocode_and_export()
+
