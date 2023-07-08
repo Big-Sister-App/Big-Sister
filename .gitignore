@@ -11,5 +11,5 @@ website/.env
 # Databases
 databases/
 
-# for the time being
-website/__init__.py
+# cleaning the repo
+cleaning/
