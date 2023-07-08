@@ -4,8 +4,8 @@
 For images/gifs/videos, `.css` files, and `.js` files. Write them as follows:
 ```html
 <!-- Images
-.png, .jpeg, .gif yada yada all follow the same format. just change the file extension in the line below -->
-<img src="{{ url_for('static', filename='imagename.png') }}">
+.png, .jpeg, .gif etc all follow the same format. just change the file extension in the line below -->
+<img src="{{ url_for('static', filename='images/imagename.png') }}">
 ```
 
 <br>
