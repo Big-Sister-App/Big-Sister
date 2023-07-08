@@ -9,7 +9,7 @@ views = Blueprint('views', __name__)
 # SQLITE CONNECTIONS & TABLE CREATION
 #---------------------------------------------
 #SQLITE FOR RECEIVING EMAILS DATABASE
-conn  = sqlite3.connect("recieve_emails.db")
+conn  = sqlite3.connect("databases/recieve_emails.db")
 cursor = conn.cursor()
 
 createTable = """CREATE TABLE IF NOT EXISTS
@@ -17,7 +17,7 @@ emailR(id INTEGER PRIMARY KEY autoincrement, emails TEXT)"""
 cursor.execute(createTable)
 
 #SQLITE FOR REPORT DATABASE
-conn2 = sqlite3.connect("reports.db")
+conn2 = sqlite3.connect("databases/reports.db")
 cursor2 = conn2.cursor()
 
 createTable = """CREATE TABLE IF NOT EXISTS

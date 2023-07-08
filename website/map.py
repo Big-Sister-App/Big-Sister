@@ -7,7 +7,7 @@ import sqlite3
 # DATABASE CONNECTIONS & SETUP
 #--------------------------------------------------------
 # Our Database of Reports
-conn2 = sqlite3.connect("reports.db")
+conn2 = sqlite3.connect("databases/reports.db")
 cursor2 = conn2.cursor()
 
 createTable = """CREATE TABLE IF NOT EXISTS
