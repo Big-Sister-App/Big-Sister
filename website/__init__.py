@@ -6,7 +6,8 @@ import os
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = os.environ['APP_ENCRYPT_KEY']
+    app.config['SECRET_KEY'] = ""
+    # os.environ['APP_ENCRYPT_KEY']
     # app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_NAME}" # where our database is
     # db.init_app(app)
 
