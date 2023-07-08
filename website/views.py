@@ -30,7 +30,7 @@ cursor2.execute(createTable)
 #---------------------------------------------
 @views.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template("index.html", map_link=os.get_env('MAP_API_LINK'))
+    return render_template("index.html", map_link=os.getenv('MAP_API_LINK'))
 
 
 # ABOUT PAGE
