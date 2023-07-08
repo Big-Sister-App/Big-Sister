@@ -502,7 +502,7 @@ button#pills-contact-tab {
 
 /************ Projects Css ************/
 .contact {
-    background-image: url('../img/banner-img.jpg');
+    background-image: url('static/images/banner-img.jpg')"
 }
 .contact img {
     width: 92%;

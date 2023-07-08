@@ -1,0 +1,12 @@
+{
+    "name": "js-backend",
+    "version": "1.0.0",
+    "main": "map.js",
+    "repository": "https://www.github.com/Big-Sister-App/Big-Sister.git",
+    "dependencies": {
+        "yarn": "^1.22.19"
+    },
+    "devDependencies": {
+        "@types/node": "^20.3.1"
+    }
+}
