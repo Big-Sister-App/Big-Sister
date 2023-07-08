@@ -1,6 +1,7 @@
 # Flask stuff:
 instance/
 .webassets-cache
+website/__pycache__
 
 # Environment variables:
 .env
@@ -16,3 +17,7 @@ databases/
 cleaning/
 Big-Sister.git/
 Big-Sister.git.bfg-report/
+
+# Not needed for now
+wsgi.py
+Procfile
