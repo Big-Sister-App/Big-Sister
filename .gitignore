@@ -7,3 +7,9 @@ website/.env
 
 # Virtual Environment
 .venv/
+
+# Databases
+databases/
+
+# for the time being
+__init__.py
