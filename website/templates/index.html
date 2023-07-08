@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
     <title> The Big Sister App</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.min.css') }}">
+    <!-- JavaScript Files -->
+    <script src="{{ url_for('static', filename='javascript/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+
+
+    <title> the Big Sister app </title>
 </head>
 <body>
 
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo"> Big Sister </h2>
+                <h2 class="logo">Big Sister</h2>
             </div>
 
             <div class="menu">
                 <ul>
-                    <li><a href="./map.py">MAP</a></li>
-                    <li><a href="./report.html">REPORT</a></li>
-                    <li><a href="./resources.html">RESOURCES</a></li>
-                    <li><a href="./about.html" >ABOUT</a></li>
+                    <li><a href="/map">MAP</a></li>
+                    <li><a href="/report">REPORT</a></li>
+                    <li><a href="/resources">RESOURCES</a></li>
+                    <li><a href="/about" >ABOUT</a></li>
 
                 </ul>
             </div>

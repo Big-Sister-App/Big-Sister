@@ -1,13 +1,10 @@
-#this file will store the different pages users can go topop
 from flask import Blueprint, jsonify, render_template, flash, request, jsonify
 import json
 import sqlite3
 import  requests
 
 
-views = Blueprint('views', __name__) #dont need to name it after the file, its just easier
-# @<name_of_the_view>.route('/<url to get to the page')
-
+views = Blueprint('views', __name__) 
 
 # SQLITE CONNECTIONS & TABLE CREATION
 #---------------------------------------------
@@ -32,24 +29,21 @@ cursor2.execute(createTable)
 #---------------------------------------------
 @views.route('/', methods=['GET', 'POST'])
 def home():
-    "Home page shit here"
-    return render_template("HomePage.html")    
+    return render_template("index.html")    
 
 
 # ABOUT PAGE
 #---------------------------------------------
 @views.route('/about')
 def about_us():
-    "About page shit here"
-    return render_template("About.html") 
+    return render_template("about.html") 
 
 
-# EMERGENCY PAGE
+# REPORT PAGE
 #---------------------------------------------
-@views.route('/emergency')
-def emergency():
-    "Emergency page shit here"
-    return render_template("Emergency.html") 
+@views.route('/resources', methods=['GET', 'POST'])
+def resources():
+    return render_template("resources.html")    
 
 
 # REPORT PAGE 
@@ -66,39 +60,38 @@ def filter(t_report):
 
 @views.route('/report', methods=['GET', 'POST'])
 def make_report():
-    "Report stuff here"
     if request.method == 'POST':
         t_report = request.form.get('t_report_field')
         filter(t_report)
         r_desc = request.form.get('r_desc_field')
         l_loc = request.form.get('l_loc_field')
         cursor2.execute("INSERT INTO {tableName} (typeOfReport, reportDesc, location) VALUES(?, ?, ?)".format(tableName="reports"),(t_report, r_desc, l_loc))
-    return render_template("Report.html")
+    return render_template("report.html")
 
         
 
-# EMAILS PAGE
-#---------------------------------------------
-# Checks if emails already is in the database
-# if it does then tell user else inserts to the table
-def duplicate(email_address):
-    cursor.execute("""SELECT * FROM emailR""")
-    result = cursor.fetchall
-    if result == "emails":
-        print("EMAIL EXISTS")
-    else:
-        cursor.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
-    conn.execute()
+# # EMAILS PAGE
+# #---------------------------------------------
+# # Checks if emails already is in the database
+# # if it does then tell user else inserts to the table
+# def duplicate(email_address):
+#     cursor.execute("""SELECT * FROM emailR""")
+#     result = cursor.fetchall
+#     if result == "emails":
+#         print("EMAIL EXISTS")
+#     else:
+#         cursor.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
+#     conn.execute()
 
-# Inserts emails from webpage into table
-@views.route('/receive-alerts', methods=['GET', 'POST'])
-def receive_emails():
-    if request.method == 'POST':
-        email_address = request.form.get('email_field')
-        duplicate(email_address)
-        cursor.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
-        conn.commit()       
-    return render_template("emails.html")
+# # Inserts emails from webpage into table
+# @views.route('/receive-alerts', methods=['GET', 'POST'])
+# def receive_emails():
+#     if request.method == 'POST':
+#         email_address = request.form.get('email_field')
+#         duplicate(email_address)
+#         cursor.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
+#         conn.commit()       
+#     return render_template("emails.html")
 
 
 
