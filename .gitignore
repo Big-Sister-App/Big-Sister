@@ -3,6 +3,7 @@ instance/
 .webassets-cache
 
 # Environment variables:
+.env
 website/.env
 
 # Virtual Environment
