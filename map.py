@@ -27,7 +27,6 @@ class LocationCuration:
         """
         self.gmaps_api = googlemaps.Client(key=gmaps_key)
         self.db_name = LocationCuration.db_dir + db_name
-        print(self.db_name)
         self.table_name = table_name
 
         self.df = None
@@ -44,7 +43,7 @@ class LocationCuration:
         already exist, it will be created.
         """
         # config
-        self.conn = sqlite3.connect(self.db_name)
+        self.conn = sqlite3.connect(self.db_name, check_same_thread=False)
         self.cursor = self.conn.cursor()
 
         # make table
@@ -68,10 +67,10 @@ class LocationCuration:
         report_desc = report_info['reportDesc']
         report_location = report_info['location']
         report_date = datetime.now()
+        report = (report_date, report_type, report_desc, report_location)
 
         self.cursor.execute(
-            "INSERT INTO {table_name} (date, typeOfReport, reportDesc, location) VALUES(?, ?, ?, ?)"
-            .format(self.table_name), (report_date, report_type, report_desc, report_location)
+            f"""INSERT INTO {self.table_name} (date, typeOfReport, reportDesc, location) VALUES(?, ?, ?, ?)""", report
         )
         self.conn.commit()
 
@@ -136,11 +135,11 @@ class LocationCuration:
         self.df.to_json(LocationCuration.db_dir + json_filename, orient='records')
 
 
-    def geocode_and_export(self):
+    def geocode_and_export(self, show_result: bool = False):
         """
         Geocodes the database data and exports it as a json file
         """
-        self.geocode_locations()
+        self.geocode_locations(show_result=show_result)
         try:
             self.convert_df_to_json()
             print("JSON File created successfully.")
