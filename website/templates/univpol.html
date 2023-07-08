@@ -8,13 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.min.css') }}">
     <script>
       window.addEventListener('DOMContentLoaded', () => {
           // Get the select element
@@ -40,8 +41,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="Logo" >
+                <a class="navbar-brand" href="/">
+                    <img src="../images/logo.png" alt="Logo" >
                 </a>
                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +51,7 @@
                 <div class="collapse navbar-collapse" tabindex="-1" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
+                            <a class="nav-link active" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#map">Map</a>
@@ -62,14 +63,14 @@
                             <a class="nav-link" href="#project">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./report.html">Report</a>
+                            <a class="nav-link" href="/report">Report</a>
                         </li>
                     </ul>
                     <span class="navbar-text">
                         <div class="social-icon">
-                            <a href="#"><img src="img/nav-icon1.svg" alt="Icon"></a>
-                            <a href="#"><img src="img/nav-icon2.svg" alt="Icon"></a>
-                            <a href="#"><img src="img/nav-icon3.svg" alt="Icon"></a>
+                            <a href="#"><img src="../images/nav-icon1.svg" alt="Icon"></a>
+                            <a href="#"><img src="../images/nav-icon2.svg" alt="Icon"></a>
+                            <a href="#"><img src="../images/nav-icon3.svg" alt="Icon"></a>
                         </div>
                     </span>
                 </div>
