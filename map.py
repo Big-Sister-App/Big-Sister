@@ -27,6 +27,7 @@ class LocationCuration:
         """
         self.gmaps_api = googlemaps.Client(key=gmaps_key)
         self.db_name = LocationCuration.db_dir + db_name
+        print(self.db_name)
         self.table_name = table_name
 
         self.df = None
@@ -60,13 +61,11 @@ class LocationCuration:
         date is automatically set to the time this function is ran.
 
         Args:
-            report_info (dict): The report information to be added. Should include:
-                                - typeOfReport
-                                - reportDesc
-                                - location
+            report_info (dict): The report information to be added. Should include typeOfReport,
+                                 reportDesc, and location
         """
         report_type = report_info['typeOfReport']
-        report_desc = report_info['repotDesc']
+        report_desc = report_info['reportDesc']
         report_location = report_info['location']
         report_date = datetime.now()
 
@@ -87,7 +86,8 @@ class LocationCuration:
         Returns:
             df (pd.DataFrame): the database as a pandas dataframe
         """
-        df = pd.read_sql_table(self.table_name, self.conn)
+        query = f"SELECT * from {self.table_name}"
+        df = pd.read_sql_query(query, self.conn)
         if show_head:
             print(df.head(10))
         return df
@@ -120,10 +120,10 @@ class LocationCuration:
             show_result (bool): whether or not to show the first 10 results after all the report location
             data hasbeen geocoded.
         """
-        df = self.convert_db_to_df(show_head=True)
-        df['gc_address'] = df['location'].apply(self.geocode_location)
+        self.df = self.convert_db_to_df()
+        self.df['gc_address'] = self.df['location'].apply(self.geocode_location)
         if show_result:
-            print(df.head(10))
+            print(self.df.head(10))
 
 
     def convert_df_to_json(self, json_filename: str = "geocoded_data.json") -> None:
@@ -133,14 +133,14 @@ class LocationCuration:
         Args:
             json_filename (str): the name of the outputted json file
         """
-        self.df.to_json(LocationCuration.db_dir + json_filename, orient='split', compression='infer', index='true')
+        self.df.to_json(LocationCuration.db_dir + json_filename, orient='records')
 
 
     def geocode_and_export(self):
         """
         Geocodes the database data and exports it as a json file
         """
-        self.geocode_locations(show_result=True)
+        self.geocode_locations()
         try:
             self.convert_df_to_json()
             print("JSON File created successfully.")
