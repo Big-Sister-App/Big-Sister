@@ -92,7 +92,7 @@ class LocationCuration:
         return df
     
 
-    def geocode_location(self, location: str, show_result: bool = False) -> tuple[str, str]:
+    def geocode_location(self, location: str, show_result: bool = False) -> str:
         """
         Generates a latitude longitude pair using the given street address.
 
@@ -106,7 +106,7 @@ class LocationCuration:
         # the closest alternative or prompt for new response? Or prompt but give suggestion
         full_location = self.gmaps_api.geocode(location)
         geo_location = full_location[0]["geometry"]["location"]
-        lat_long = (geo_location["lat"], geo_location["lng"])
+        lat_long = f"{geo_location['lat']}, {geo_location['lng']}"
         return lat_long
     
 
@@ -120,7 +120,8 @@ class LocationCuration:
             data hasbeen geocoded.
         """
         self.df = self.convert_db_to_df()
-        self.df['gc_address'] = self.df['location'].apply(self.geocode_location)
+        self.df['gcAddress'] = self.df['location'].apply(self.geocode_location)
+        print(self.df.head(10))
         if show_result:
             print(self.df.head(10))
 
