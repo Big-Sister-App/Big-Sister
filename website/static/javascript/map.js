@@ -1,15 +1,18 @@
-function initMap() {
-    const myLatLng = { lat: 42.3397873, lng: -71.0880919};
-    const map = new google.maps.Map(document.getElementById("googleMap"), {
-      zoom: 4,
-      center: myLatLng,
-    });
-  
-    new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello World!",
-    });
-  }
-  
-  window.initMap = initMap;
+const { json } = require("stream/consumers");
+
+
+/**
+ * Gets a list of reports from the JSON file of reports
+ */
+function getJson() {
+    fetch('../databases/sample.json')
+        .then(response => response.text())
+        .then(jsonString => {
+            const reports = JSON.parse(jsonString)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+
