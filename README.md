@@ -4,7 +4,7 @@ This is assuming you've already cloned the repository on your laptop. If you hav
 ## 1. ENV file
 An env file holds something called **environment variables**. Basically you can store sensitive information in the file and then call on that sensistive info throughout our code, without it being displayed in the repository on github (i.e. no one can see it).
 <br><br>**Setup**<br>
-First time you clone the repository create a file named `.env` in the root folder. Name it **exactly** that. Message me for the information that should go in that file, and make sure you _never_ upload it to github. If you name it `.env` then you dont have to worry about it.
+First time you clone the repository create a file named `.env` in the **website** folder. Name it **exactly** that. Message me for the information that should go in that file, and make sure you _never_ upload it to github. If you name it `.env` then you dont have to worry about it.
 
 <br>
 
