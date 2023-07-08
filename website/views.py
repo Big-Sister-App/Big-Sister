@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, jsonify, render_template, flash, request, jsonify
 import json
 import sqlite3
@@ -29,7 +30,7 @@ cursor2.execute(createTable)
 #---------------------------------------------
 @views.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template("index.html")    
+    return render_template("index.html", map_link=os.get_env('MAP_API_LINK'))
 
 
 # ABOUT PAGE
