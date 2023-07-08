@@ -28,3 +28,6 @@ website/static/javascript/node_modules/
 
 # debug
 website/static/javascript/yarn.lock
+
+# misc
+roughtnotes.txt
