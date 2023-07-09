@@ -14,7 +14,7 @@ async function initMap() {
     {
       zoom: 10,
       center: boston,
-      mapId: 'DEMO_MAP_ID',
+      mapId: 'DEMO_MAP_ID', // figure out what this should be
     }
   );
 
@@ -23,7 +23,6 @@ async function initMap() {
     createMarker(report, map);
   }
 }
-
 
 
 /**
@@ -44,18 +43,43 @@ function getJson() {
 
 
 /**
- * Creates a marker from the given report and adds it to the given map
+ * Creates a marker from the given report and adds it to the given map. A
+ * popup is also created with the marker to display the description of the
+ * report.
  * @param {any} report - a report
  * @param {Map} map - a Google Map
  * @return {void}
  */
 async function createMarker(report, map) {
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const {InfoWindow} = await google.maps.importLibrary("maps")
     const locs = report['gcAddress'].split(',')
     const position = { lat: parseFloat(locs[0]), lng: parseFloat(locs[1]) }
+    // marker
     const marker = new AdvancedMarkerElement({
         map: map,
         position: position,
-        title: report['typeOfReport']
+        title: reportToString(report)
     })
+    // info window
+    var infoWindow = new google.maps.InfoWindow({});
+    marker.addListener('click', function() {
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(map, marker);
+    });
+}
+
+
+/**
+ * Formats a report as a multi-line string to be displayed to an end-user
+ * @param {any} report - the report to format
+ * @return {str}
+ */
+function reportToString(report) {
+  const reportType = report['typeOfReport'];
+  const reportDesc = report['reportDesc'];
+  const reportLoc = report['location'];
+  const reportDate = report['date'];
+
+  return reportType + "\n" + reportLoc + "\n" + reportDate + "\n" + reportDesc
 }
