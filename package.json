@@ -1,0 +1,20 @@
+{
+    "name": "big-sister",
+    "version": "1.0.0",
+    "repository": {
+        "url": "https://github.com/Big-Sister-App/Big-Sister"
+    },
+    "description": "(in progress) An online heatmap of dangerous places to avoid as college students.",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js",
+        "lint": "eslint src"
+    },
+    "devDependencies": {
+        "eslint": "^8.44.0",
+        "eslint-config-google": "^0.14.0"
+    },
+    "engines": {
+        "node": ">=12.22.0"
+    }
+}

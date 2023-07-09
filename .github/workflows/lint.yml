@@ -1,13 +1,13 @@
 name: Lint
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   eslint:
+    name: Lint JS Files
     runs-on: ubuntu-latest
     steps:
-      - name: Lint JS Files
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - uses: stefanoeb/eslint-action@1.0.2
         with:
-          files: website/static/javascript/
+          files: website/static/javascript
