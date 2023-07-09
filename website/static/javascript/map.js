@@ -81,8 +81,17 @@ function reportToString(report) {
   const reportLoc = report['location'];
   const reportDate = report['date'];
 
-  return `<span style="font-weight: bold;">` + reportType 
-  + `</span>` + `<br>` + reportDate + `<br>` 
-  + reportLoc + `<hr>` + reportDesc;
+  const reportString = `
+    <span style="font-weight: bold;">${reportType}</span>
+    <br>
+    ${reportDate}
+    <br>
+    ${reportLoc}
+    <hr>
+    ${reportDesc}
+`;
+
+
+  return reportString
 }
 
