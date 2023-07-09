@@ -83,3 +83,4 @@ function reportToString(report) {
 
   return reportType + "\n" + reportLoc + "\n" + reportDate + "\n" + reportDesc
 }
+
