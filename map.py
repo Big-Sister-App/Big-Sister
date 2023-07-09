@@ -121,11 +121,10 @@ class LocationCuration:
         """
         self.df = self.convert_db_to_df()
         self.df['gcAddress'] = self.df['location'].apply(self.geocode_location)
-        print(self.df.head(10))
         if show_result:
             print(self.df.head(10))
 
-
+            
     def convert_df_to_json(self, json_filename: str = "geocoded_data.json") -> None:
         """
         Converts this tool's dataframe into a JSON file.
@@ -146,7 +145,6 @@ class LocationCuration:
             print("JSON File created successfully.")
         except:
             print("JSON File could not be created.")
-
 
 
 def run():
