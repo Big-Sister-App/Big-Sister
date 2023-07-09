@@ -64,7 +64,7 @@ async function createMarker(report, map) {
     // info window
     var infoWindow = new google.maps.InfoWindow({});
     marker.addListener('click', function() {
-      infoWindow.setContent(marker.getTitle());
+      infoWindow.setContent(marker.title);
       infoWindow.open(map, marker);
     });
 }
@@ -81,6 +81,8 @@ function reportToString(report) {
   const reportLoc = report['location'];
   const reportDate = report['date'];
 
-  return reportType + "\n" + reportLoc + "\n" + reportDate + "\n" + reportDesc
+  return `<span style="font-weight: bold;">` + reportType 
+  + `</span>` + `<br>` + reportDate + `<br>` 
+  + reportLoc + `<hr>` + reportDesc;
 }
 
