@@ -2,10 +2,12 @@
 instance/
 .webassets-cache
 website/__pycache__
+__pycache__/
 
 # Environment variables:
 .env
 website/.env
+website/static/javascript/package-lock.json
 
 # Virtual Environment
 .venv/
@@ -21,3 +23,12 @@ Big-Sister.git.bfg-report/
 # Not needed for now
 wsgi.py
 Procfile
+
+# typescript
+website/static/javascript/node_modules/
+
+# debug
+website/static/javascript/yarn.lock
+
+# misc
+roughtnotes.txt

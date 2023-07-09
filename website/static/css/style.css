@@ -14,7 +14,7 @@
 }
 @font-face {
 	font-family: Centra;
-	src: url('font/CentraNo2-Book.ttf');
+	src: url('../font/CentraNo2-Book.ttf');
 	font-weight: 400;
 }
 
@@ -224,7 +224,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
     margin-top: 0;
     padding: 260px 0 100px 0;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8)10%,rgba(255, 232, 232, 0.668)80%), url('../img/banner-img.jpg');
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8)10%,rgba(255, 232, 232, 0.668)80%), url('../images/banner-img.jpg');
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -502,7 +502,7 @@ button#pills-contact-tab {
 
 /************ Projects Css ************/
 .contact {
-    background-image: url('../img/banner-img.jpg');
+    background-image: url('static/images/banner-img.jpg')"
 }
 .contact img {
     width: 92%;
@@ -575,7 +575,7 @@ button#pills-contact-tab {
 /************ Footer Css ************/
 .footer {
     padding: 0 0 50px 0;
-    background-image: url('../img/footer-bg.png');
+    background-image: url('../images/footer-bg.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -656,7 +656,7 @@ button#pills-contact-tab {
 .univpol {
     margin-top: 0;
     padding: 200px 0 100px 0;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8)10%,rgba(255, 232, 232, 0.668)80%), url('../img/banner-img.jpg');
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8)10%,rgba(255, 232, 232, 0.668)80%), url('../images/banner-img.jpg');
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;

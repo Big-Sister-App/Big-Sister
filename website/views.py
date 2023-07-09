@@ -1,28 +1,21 @@
 import os
-from flask import Blueprint, jsonify, render_template, flash, request, jsonify
-import json
+from flask import Blueprint, render_template, request, redirect, url_for, send_file
 import sqlite3
-import  requests
+from map import LocationCuration
+from dotenv import load_dotenv
 
+load_dotenv()
 
 views = Blueprint('views', __name__) 
 
-# SQLITE CONNECTIONS & TABLE CREATION
-#---------------------------------------------
+geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
+
 #SQLITE FOR RECEIVING EMAILS DATABASE
-conn  = sqlite3.connect("databases/recieve_emails.db")
-cursor = conn.cursor()
-
-createTable = """CREATE TABLE IF NOT EXISTS
-emailR(id INTEGER PRIMARY KEY autoincrement, emails TEXT)"""
-cursor.execute(createTable)
-
-#SQLITE FOR REPORT DATABASE
-conn2 = sqlite3.connect("databases/reports.db")
+conn2  = sqlite3.connect("databases/recieve_emails.db")
 cursor2 = conn2.cursor()
 
 createTable = """CREATE TABLE IF NOT EXISTS
-reports(id INTEGER PRIMARY KEY autoincrement, date TEXT, typeOfReport TEXT, reportDesc TEXT, location TEXT)"""
+emailR(id INTEGER PRIMARY KEY autoincrement, emails TEXT)"""
 cursor2.execute(createTable)
 
 
@@ -40,33 +33,46 @@ def about_us():
     return render_template("about.html") 
 
 
-# REPORT PAGE
+# RESOURCES PAGE
 #---------------------------------------------
 @views.route('/resources', methods=['GET', 'POST'])
 def resources():
     return render_template("resources.html")    
 
 
+# GET JSON
+#---------------------------------------------
+@views.route('/databases/geocoded_data.json')
+def get_json():
+    return send_file('../databases/geocoded_data.json')
+
+
 # REPORT PAGE 
 #---------------------------------------------
-# Filters reports
-def filter(t_report):
-    cursor.execute("""SELECT typeOfReport FROM reports WHERE typeofReport NOT LIKE 'Fuck%'; """)
-    t_report = cursor.fetchall
-    if t_report == "typeOfReport":
-        cursor.execute("INSERT INTO {tableName} (typeOfReport) VALUES(?)".format(tableName="reports"), (t_report))
-    else: 
-        print ("Innapropiate Language")
-        conn.execute()
-
 @views.route('/report', methods=['GET', 'POST'])
 def make_report():
     if request.method == 'POST':
         t_report = request.form.get('t_report_field')
-        filter(t_report)
         r_desc = request.form.get('r_desc_field')
         l_loc = request.form.get('l_loc_field')
-        cursor2.execute("INSERT INTO {tableName} (typeOfReport, reportDesc, location) VALUES(?, ?, ?)".format(tableName="reports"),(t_report, r_desc, l_loc))
+
+        # report = {
+        #     "typeOfReport": t_report,
+        #     "reportDesc": r_desc,
+        #     "location": l_loc
+        # }
+
+        # TODO: remove later, just a random example
+        # report = {
+        #     "typeOfReport": "Assault",
+        #     "reportDesc": "Some description",
+        #     "location": "291 Saint Botolph Street, Boston, MA"
+        # }
+        
+        # geocoder.add_to_table(report_info=report)
+        # geocoder.geocode_and_export()
+        return redirect(url_for("map.html"))
+    
     return render_template("report.html")
 
         
@@ -76,8 +82,8 @@ def make_report():
 # # Checks if emails already is in the database
 # # if it does then tell user else inserts to the table
 # def duplicate(email_address):
-#     cursor.execute("""SELECT * FROM emailR""")
-#     result = cursor.fetchall
+#     cursor2.execute("""SELECT * FROM emailR""")
+#     result = cursor2.fetchall
 #     if result == "emails":
 #         print("EMAIL EXISTS")
 #     else:
@@ -90,8 +96,8 @@ def make_report():
 #     if request.method == 'POST':
 #         email_address = request.form.get('email_field')
 #         duplicate(email_address)
-#         cursor.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
-#         conn.commit()       
+#         cursor2.execute("INSERT INTO {tableName} (emails) VALUES(?)".format(tableName="emailR"), (email_address))
+#         conn2.commit()       
 #     return render_template("emails.html")
 
 

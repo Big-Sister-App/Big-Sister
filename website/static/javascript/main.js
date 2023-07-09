@@ -40,7 +40,7 @@ $('.skill-slider').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
-    navText: ["<img src='img/arrow1.svg'>","<img src='img/arrow2.svg'>"],
+    navText: ["<img src='/static/images/arrow1.svg'>","<img src='/static/images/arrow2.svg'>"],
     dots: false,
     responsive:{
         0:{
