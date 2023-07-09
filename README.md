@@ -1,5 +1,3 @@
-> [![ESLint](https://github.com/Big-Sister-App/Big-Sister/actions/workflows/lint.yml/badge.svg)](https://github.com/Big-Sister-App/Big-Sister/actions/workflows/lint.yml)
-
 # How to Run the Website Locally
 This is assuming you've already cloned the repository on your laptop. If you haven't just Slack me lol, I'm too lazy to write that up rn. The first 3 steps are for when you're setting this up for the first time. After the intial setup you shouldn't have to do all this again. Just reactivating your venv and running the website.
 
