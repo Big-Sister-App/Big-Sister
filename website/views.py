@@ -60,15 +60,7 @@ def make_report():
         #     "typeOfReport": t_report,
         #     "reportDesc": r_desc,
         #     "location": l_loc
-        # }
-
-        # TODO: remove later, just a random example
-        # report = {
-        #     "typeOfReport": "Assault",
-        #     "reportDesc": "Some description",
-        #     "location": "291 Saint Botolph Street, Boston, MA"
-        # }
-        
+        # } 
         # geocoder.add_to_table(report_info=report)
         # geocoder.geocode_and_export()
         return redirect(url_for("map.html"))

@@ -1,0 +1,30 @@
+name: ESLint
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Yarn
+      run: npm install -g yarn
+
+    - name: Install Dependencies
+      run: yarn install
+
+    - name: Cache ESLint dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.eslint
+        key: ${{ runner.os }}-eslint-${{ hashFiles('**/.eslintrc') }}
+
+    - name: Install ESLint dependencies
+      run: yarn global add eslint
+
+    - name: Lint JS Files
+      run: yarn eslint . --ext .js,.jsx,.ts,.tsx

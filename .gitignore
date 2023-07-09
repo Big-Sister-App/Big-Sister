@@ -24,11 +24,13 @@ Big-Sister.git.bfg-report/
 wsgi.py
 Procfile
 
-# typescript
-website/static/javascript/node_modules/
+# package manager things
+node_modules/
+package-lock.json
+yarn.lock
 
 # debug
 website/static/javascript/yarn.lock
 
 # misc
-roughtnotes.txt
+notes.txt
