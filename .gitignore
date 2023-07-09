@@ -28,6 +28,7 @@ Procfile
 node_modules/
 package-lock.json
 yarn.lock
+package.json
 
 # debug
 website/static/javascript/yarn.lock
