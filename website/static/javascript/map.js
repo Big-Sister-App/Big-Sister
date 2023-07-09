@@ -24,7 +24,6 @@ async function initMap() {
   }
 }
 
-
 /**
  * Gathers a list of reports from the JSON file of reports
  * @return {any[]} reports - the list of reports
@@ -90,8 +89,5 @@ function reportToString(report) {
     <hr>
     ${reportDesc}
 `;
-
-
   return reportString
 }
-
