@@ -502,7 +502,7 @@ button#pills-contact-tab {
 
 /************ Projects Css ************/
 .contact {
-    background-image: url('static/images/banner-img.jpg')"
+    background-image: url('static/images/banner-img.jpg');
 }
 .contact img {
     width: 92%;
@@ -557,7 +557,7 @@ button#pills-contact-tab {
     color: #fff;
 }
 .contact form button::before {
-    content: "";
+    content: '';
     background: #121212;
     width: 0;
     height: 100%;
@@ -603,7 +603,7 @@ button#pills-contact-tab {
     align-items: center;
 }
 .new-emil-bx::before {
-    content: "";
+    content: '';
     background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
     border-radius: 20px;
     position: absolute;
@@ -614,7 +614,7 @@ button#pills-contact-tab {
     right: -1px;
 }
 .new-emil-bx::after {
-    content: "";
+    content: '';
     background: #fff;
     border-radius: 20px;
     position: absolute;
