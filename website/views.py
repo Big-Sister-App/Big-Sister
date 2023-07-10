@@ -1,7 +1,7 @@
 import os
 from flask import Blueprint, render_template, request, redirect, url_for, send_file
 import sqlite3
-from map import LocationCuration
+from website.map import LocationCuration
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -7,7 +7,7 @@ import sqlite3
 
 class LocationCuration:
     """
-    A tool to use and geocode report data to be used in a Google Map
+    A tool for geocoding report data to be used in a Google Map
 
     Attrs:
         db_dir (str): the location of the directory where databases should be stored or accessed from
@@ -135,7 +135,7 @@ class LocationCuration:
         self.df.to_json(LocationCuration.db_dir + json_filename, orient='records')
 
 
-    def geocode_and_export(self, show_result: bool = False):
+    def geocode_and_export(self, show_result: bool = False) -> None:
         """
         Geocodes the database data and exports it as a json file
         """
@@ -147,9 +147,10 @@ class LocationCuration:
             print("JSON File could not be created.")
 
 
+
 def run():
     """
-    Runs the LocationCuration tool
+    Runs the LocationCuration tool for geocoding report data
     """
     geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
     geocoder.geocode_and_export()
