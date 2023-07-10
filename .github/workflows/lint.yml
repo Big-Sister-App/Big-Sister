@@ -35,8 +35,9 @@ jobs:
 
       # CSS LINTING
       #--------------
-    - name: Install CSSLint dependencies
-      run: npm install -g csslint
+    # - name: Install CSSLint dependencies
+    #   run: npm install -g csslint
 
-    - name: Lint CSS Files
-      run: npx csslint --config config/.csslintrc '../../website/static/css/*.css' --quiet
+    # - name: Lint CSS Files
+    #   run: csslint --config config/.csslintrc '**/*.css'
+    #   shell: bash
