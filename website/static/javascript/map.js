@@ -13,7 +13,7 @@ async function initMap() {
   map = new Map(
       document.getElementById('googleMap'),
       {
-        zoom: 10,
+        zoom: 12,
         center: boston,
         mapId: 'DEMO_MAP_ID', // figure out what this should be
       },
@@ -51,19 +51,21 @@ function getJson() {
  */
 async function createMarker(report, map) {
   const {AdvancedMarkerElement} = await google.maps.importLibrary('marker');
-  const {InfoWindow} = await google.maps.importLibrary('maps');
   const locs = report['gcAddress'].split(',');
   const position = {lat: parseFloat(locs[0]), lng: parseFloat(locs[1])};
+
   // marker
+  const markerDesign = await customizeMarker(report);
   const marker = new AdvancedMarkerElement({
     map: map,
     position: position,
-    title: reportToString(report),
+    title: report['typeOfReport'],
+    content: markerDesign.element,
   });
   // info window
   const infoWindow = new google.maps.InfoWindow({});
   marker.addListener('click', function() {
-    infoWindow.setContent(marker.title);
+    infoWindow.setContent(reportToString(report));
     infoWindow.open(map, marker);
   });
 }
@@ -90,4 +92,40 @@ function reportToString(report) {
   `;
 
   return reportString;
+}
+
+// TODO: replace this with custom icons from @alaatamam and @raabyo when made
+/**
+ * Customizes the colors of a marker depending on the type of report it
+ * represents.
+ * @param {any} report - the report the marker is based on
+ * @return {PinElement} - an element containing the desired customizations
+ */
+async function customizeMarker(report) {
+  const {PinElement} = await google.maps.importLibrary('marker');
+  const reportType = report['typeOfReport'];
+  let customMarker;
+
+  switch (reportType) {
+    case 'Verbal Harassment':
+      customMarker = new PinElement({
+        background: '#9387ff',
+      });
+      break;
+    case 'Physical Harrassment':
+      customMarker = new PinElement({
+        background: '#f3ff87',
+      });
+      break;
+    case 'Sexual Assault':
+      customMarker = new PinElement({
+        background: '#ff9c62',
+      });
+      break;
+    default:
+      customMarker = new PinElement({
+        background: '#ff8d87',
+      });
+  }
+  return customMarker;
 }
