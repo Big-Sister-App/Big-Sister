@@ -9,5 +9,3 @@ rules:
   linebreak-style:
     - "off"
     - "unix"
-
-# change linebreak-style in the future if necessary
