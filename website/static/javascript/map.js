@@ -45,7 +45,6 @@ function getJson() {
       });
 }
 
-
 /**
  * Creates a marker from the given report and adds it to the given map.
  * @param {any} report - the report to create a marker from
@@ -88,7 +87,6 @@ async function createInfoWindow(map, marker, report) {
     infoWindow.open(map, marker);
   });
 }
-
 
 /**
  * Formats a report as a multi-line string to be displayed to an end-user
