@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 views = Blueprint('views', __name__) 
-
 geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
 
 #SQLITE FOR RECEIVING EMAILS DATABASE
