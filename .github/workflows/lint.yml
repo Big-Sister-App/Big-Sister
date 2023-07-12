@@ -1,4 +1,4 @@
-name: ESLint
+name: Linters
 on: push
 jobs:
   build:
@@ -6,7 +6,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Node.js
+      # GENERAL SETUP
+      #---------------
+    - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14
@@ -17,6 +19,8 @@ jobs:
     - name: Install Dependencies
       run: yarn install
 
+      # JS LINTING
+      #--------------
     - name: Cache ESLint dependencies
       uses: actions/cache@v2
       with:
@@ -27,4 +31,26 @@ jobs:
       run: yarn global add eslint
 
     - name: Lint JS Files
-      run: yarn eslint . --ext .js,.jsx,.ts,.tsx
+      run: yarn eslint --config config/.eslintrc.yml --ext .js,.jsx,.ts,.tsx
+
+      # PYTHON LINTING
+      #--------------
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install MyPy
+      run: pip install mypy
+
+    - name: Lint Python Files
+      run: mypy website/ --ignore-missing-imports
+
+      # CSS LINTING
+      #--------------
+    # - name: Install CSSLint dependencies
+    #   run: npm install -g csslint
+
+    # - name: Lint CSS Files
+    #   run: csslint --config config/.csslintrc '**/*.css'
+    #   shell: bash

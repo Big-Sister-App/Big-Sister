@@ -1,13 +1,16 @@
-# Will eventually split this into more classes for the sake of SOLID, but right now just keeping it simple <3
+# Will eventually split this into more classes for the sake of SOLID
+# but right now just keeping it simple <3
 from datetime import datetime
 import os
-import googlemaps
-import pandas as pd
 import sqlite3
+from typing import Dict, List, Optional
+import googlemaps # type: ignore
+import pandas as pd # type: ignore
+
 
 class LocationCuration:
     """
-    A tool to use and geocode report data to be used in a Google Map
+    A tool for geocoding report data to be used in a Google Map
 
     Attrs:
         db_dir (str): the location of the directory where databases should be stored or accessed from
@@ -15,7 +18,7 @@ class LocationCuration:
     db_dir = "databases/"
 
 
-    def __init__(self, gmaps_key: str, db_name: str = "reports.db", table_name: str = "reports") -> None:
+    def __init__(self, gmaps_key: Optional[str], db_name: str = "reports.db", table_name: str = "reports") -> None:
         """
         Initializes a LocationCuration that will gather report data from the given
         database's table, and geocode using the given GoogleMaps API key.
@@ -29,12 +32,12 @@ class LocationCuration:
         self.db_name = LocationCuration.db_dir + db_name
         self.table_name = table_name
 
-        self.df = None
-        self.conn = None
-        self.cursor = None
+        self.conn = sqlite3.connect(self.db_name, check_same_thread=False)
+        self.cursor = self.conn.cursor()
         self.load_table()
+        self.df = self.convert_db_to_df()
 
-        self.marker_locations = []
+        self.marker_locations: List[str] = []
 
 
     def load_table(self) -> None:
@@ -42,10 +45,6 @@ class LocationCuration:
         Loads the database and gets the table with report data. If the table does not
         already exist, it will be created.
         """
-        # config
-        self.conn = sqlite3.connect(self.db_name, check_same_thread=False)
-        self.cursor = self.conn.cursor()
-
         # make table
         create_table = f"""CREATE TABLE IF NOT EXISTS
         {self.table_name}(id INTEGER PRIMARY KEY autoincrement, date TEXT, typeOfReport TEXT, 
@@ -54,7 +53,7 @@ class LocationCuration:
         self.conn.commit()
 
 
-    def add_to_table(self, report_info: dict[str, str]) -> None:
+    def add_to_table(self, report_info: Dict[str, str]) -> None:
         """
         Adds the given report information to the report table in the database. The report's
         date is automatically set to the time this function is ran.
@@ -119,7 +118,7 @@ class LocationCuration:
             show_result (bool): whether or not to show the first 10 results after all the report location
             data hasbeen geocoded.
         """
-        self.df = self.convert_db_to_df()
+        # self.df = self.convert_db_to_df()
         self.df['gcAddress'] = self.df['location'].apply(self.geocode_location)
         if show_result:
             print(self.df.head(10))
@@ -135,7 +134,7 @@ class LocationCuration:
         self.df.to_json(LocationCuration.db_dir + json_filename, orient='records')
 
 
-    def geocode_and_export(self, show_result: bool = False):
+    def geocode_and_export(self, show_result: bool = False) -> None:
         """
         Geocodes the database data and exports it as a json file
         """
@@ -147,9 +146,10 @@ class LocationCuration:
             print("JSON File could not be created.")
 
 
+
 def run():
     """
-    Runs the LocationCuration tool
+    Runs the LocationCuration tool for geocoding report data
     """
     geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
     geocoder.geocode_and_export()

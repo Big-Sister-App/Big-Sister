@@ -1,13 +1,12 @@
 import os
 from flask import Blueprint, render_template, request, redirect, url_for, send_file
 import sqlite3
-from map import LocationCuration
+from website.map import LocationCuration
 from dotenv import load_dotenv
 
 load_dotenv()
 
 views = Blueprint('views', __name__) 
-
 geocoder = LocationCuration(os.getenv('GMAPS_API_KEY'))
 
 #SQLITE FOR RECEIVING EMAILS DATABASE

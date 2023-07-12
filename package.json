@@ -10,6 +10,9 @@
         "start": "node index.js",
         "lint": "eslint src"
     },
+    "dependencies": {
+        "csslint": "^1.0.0"
+    },
     "devDependencies": {
         "eslint": "^8.44.0",
         "eslint-config-google": "^0.14.0"

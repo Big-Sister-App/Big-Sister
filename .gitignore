@@ -35,3 +35,4 @@ website/static/javascript/yarn.lock
 
 # misc
 notes.txt
+.mypy_cache/
