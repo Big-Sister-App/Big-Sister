@@ -27,9 +27,6 @@ source .venv/bin/activate
 # Windows Activation
 .venv/Scripts/Activate
 ```
-If you've done it correctly you should get a bracket in front of your terminal path that says **(.venv)**
-<br><br>
-![image](https://github.com/Big-Sister-App/Big-Sister/assets/67931161/092d80e9-47be-466b-8d9f-a82d2915c636)
 
 <br>
 
@@ -53,6 +50,16 @@ This step is a little more complicated. The only reason we are using node (and s
 3. Now in the **root** folder of the project type ```npm install``` in your terminal. If that doesn't work, do ```yarn install```
 
 After that you should be all set unless I forgot a step lol--message me.
+
+<br>
+
+# 4.5. Add a Databases Folder
+Almost forgot about this step so disregard my previous sentence haha. Anywho, for this step do the following.
+
+1. In the *root* folder of the repository, make a folder exactly titled `databases`
+   
+2. Communicate with me to get the mock files to put in this folder
+
 <br>
 
 ## 5. Run the Website
