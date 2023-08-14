@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title> the Big Sister app </title>
+
+
+</head>
+
+<body>
+
+    <main>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Logo" >
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" tabindex="-1" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#map">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./mentalhealth.html">Resources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#project">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./report.html">Report</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        <button class="vvd" onclick="location.href='#connect';"><span id="navJoin">Join the Network</span></button>
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Banner -->
+        <section class="banner" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                   
+                      <div class="col-7 col-md-6 col-xl-7  wow fadeIn" data-wow-duration="1.5s">
+                        <span class="taglin">By Everyone, For Everyone</span>
+                        <h1 id="banner-intro">Welcome to<span id="bannerHeader" class="txt-rotate" data-period="9000" data-rotate='[" Big Sister"]'> Big Sister </span>
+                            based in Boston </h1>
+                        <p>We are a safety platform aiming to create a safe space 
+                            for those who identify as women or non-binary. 
+                            Providing the ability to report incidents of harassment
+                            anonymously and a heat map displaying these incidents, 
+                            we ensure that you never walk alone
+                        </p>
+                        <span class="row" id="navbuttons">
+                            <button class="col-3 header_btns">Make A Report</button>
+                            <button class="col-3 header_btns" onClick="document.getElementById('joinBigSister').scrollIntoView();">Receive Alerts</button>
+                            <button class="col-3 header_btns" onClick="document.getElementById('resourcesCarousel').scrollIntoView();">Resources</button>
+                        </span>
+                        <button onclick="location.href='#connect';">Let’s Connect <i
+                                class="bi bi-arrow-right-circle"></i></button>
+                            
+                    </div>
+                    <span class="col-3 col-md-3 col-xl-3 wow zoomIn" data-wow-duration="1.5s" style="margin-right: 2%;">
+                        
+                      <img id="bannerimg" src="img/header-img.svg" alt="Image" style="left:0;height:200%; width:200%">
+                    
+                    </span>
+
+                    <div id="socialmediacol" class="col-1 col-md-1 col-xl-1" style="margin-left:5%; margin-right:0%;" >
+                        <img class="row" src="img/instagramlogo.png" alt="Instagram Logo">
+                        <img class="row" src="img/linkedinlogo.png" alt="LinkedIn Logo">
+                        <img class="row" src="img/githublogo.png" alt="GitHub Logo">
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- Banner End -->
+
+       
+ 
+<!-- Map Guide Section--> 
+<section id="map-guide" class="section">
+<h1 class="guideHeading"> Interactive Heat Map</h1>
+<h4 class="section-paragraph col-11"> Our Heat Map displays reports made in your specified area. When you click on a pin,
+     you will be able to see the details regarding the incident of which occurred.
+     You will be able to see the location,
+     the type of incident, and a description of what happened.</h4>
+</section>
+<!-- End of Map Guide Section-->
+
+ <!-- Map Section -->
+        <section id="mapSection" class="initial my-0 py-0">
+                <div id="mapRow" class="row">
+
+                    <!-- Location Search -->
+                    <div class="col-3 col-md-3" id="locationSearch">
+                        <h1 class="row col-12" id="searchHeader">Select Your Location</h1>
+                        <input id="pac-input" class="controls row" type="text" placeholder="College, City, or Zip Code" />
+                        <h4 class="row" id="searchGuide"> 
+                            Click the Exlamation Mark in the top right corner of the map to make a report
+                            </h4>
+                        <img id="mapPin" alt="Map Pin Image" class="row" src="img/mappin1.png">
+                        
+                    </div>
+                    <!-- End of Location Search -->
+
+                    <div id="mapdiv" class="col-9 col-md-9 zoomIn" data-wow-duration="1.5s">
+                        <!-- Google Map Placeholder -->
+                        <!-- API key: AIzaSyCwNEnt3PnQVrKsdfET4PMNzQuvFBz3MCg -->
+                        <div id="mapAndReport">
+                            <div id="googleMap" style="width: 75vw; height:800px;"></div>
+                            <div id="navToReports" title="Make A Report!">
+                                <img src="img/exclamation.png" id="exclamation" alt="Exclamation Image">
+                            </div>
+                        </div>
+                            
+
+                            <script>
+                                function myMap() {
+                                    var mapProp = {
+                                        center: new google.maps.LatLng(51.508742, -0.120850),
+                                        zoom: 5,
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                }
+                            </script>
+
+                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwNEnt3PnQVrKsdfET4PMNzQuvFBz3MCg&callback=myMap"></script> 
+
+                    </div>
+            
+            </div>
+        </section>
+<!-- End of Maps Section -->
+
+
+<!-- Resources Carousel -->
+<section class="resources-section row">
+
+    <div class=" resource-text">
+    <h1 class="guideHeading"> Resources </h1>
+    <h4 class="section-paragraph"> You survived. Whether or not you chose to report your experience, you deserve access to resources
+        that can enable you to begin to heal. Below are quick links to popular recovery resources. <span style="color: #fee6e2">We are proud of you, and we admire you</span> 
+    </h4>
+   
+</div> 
+
+    
+        
+<div class="row" style="margin-top: -5%; margin-left: 2%">
+
+<!-- resource 1 -->
+
+<div class="col-3 resource-card">
+ <div class="card col-12" >
+    <img src="/img/unires.webp" class="card-image col-3">
+
+    <div class="card-content">
+        <span class="card-title"> University Resources</span>
+    </div>
+ </div>
+ <p class="card-text"> Support Resources that are provided to you by your university such as free access to support resources</p>
+</div>
+
+   
+    
+<div class="col-3 resource-card">
+    <div class="card col-3"> 
+        <img src="/img/mentalres.png" class="card-image col-3">
+
+        <div class="card-content">
+            <span class="card-title"> Mental Health</span>
+            <p class="card-text"></p>
+            </div>
+        </div>
+        <p class="card-text"> Find free mental health resources online to help you  </p>
+    </div>
+
+
+    <div class="col-3 resource-card">
+        <div class="card col-3"> 
+            <img src="/img/hotlineres.png" class="card-image col-3">
+
+            <div class="card-content">
+                <span class="card-title"> Hotlines</span>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    <p class="card-text">Need someone to talk to? Select from one of the hotlines pertaining to your needs</p>
+</div>   
+
+</section> 
+
+<section id="stats-section">
+    <div class="container" style="margin-left: 5%;">
+    <h1>Harassment Statistics</h1>
+    <p>Harassment on college campuses has been on the rise, and Big Sister is dedicated to decreasing these numbers</p>
+
+    <!-- stats 1 & 2-->
+    <div class="row">
+        <!-- stat 1-->
+        <div class="col-6 stats-box"> 
+            <div class="stats-bg"><p class="stat-text col-7">78.2% of harassment
+                reports were made by
+                 women in 2022</p></div>
+            <img src="/img/stat1.png" alt="Harassment Reports Percentage" class="stat-img">
+        </div>
+
+         <!-- stat 2-->
+        <div class="col-6 stats-box">
+            <div class="stats-bg"><p class="stat-text col-7">84% of student survivors
+                report being assaulted within
+                the first 4 semesters on campus</p></div>
+            <img src="/img/stat2.png" alt="Harassment Reports Percentage" class="stat-img"
+            style="height: 120%;">
+        </div>
+    </div>
+
+    <!-- stats 3 & 4-->
+    <div class="row">
+        <div class="col-6 stats-box">
+            <div class="stats-bg"><p class="stat-text col-7">Only 12% of student 
+                survivors report to 
+                the police</p></div>
+            <img src="/img/stat3.png" alt="Harassment Reports Percentage" class="stat-img"
+            style="height: 150%; top: -90px;">
+        </div>
+
+        <div class="col-6 stats-box">
+            <div class="stats-bg"><p class="stat-text col-7">23% TGQN (transgender, queer, noncomforming) college students
+                have been sexually assaulted</p></div>
+            <img src="/img/stat4.png" alt="Harassment Reports Percentage" class="stat-img"
+            style="height: 120%;">
+        </div>
+    </div>
+</div>
+
+</section>
+
+<!-- End of Resources Carousel -->
+
+<!-- Statistics -->
+<!--
+<section style="margin-top: 30%;" id="stats-section">
+
+<div class="statistics" style="margin-left: 20%">
+    <div class="stats-outer">
+        <div class="stats-inner">
+            <div id="stat-number"> 82%</div>
+        </div>
+    </div>
+
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+        <defs>
+           <linearGradient id="GradientColor">
+              <stop offset="0%" stop-color="#e91e63" />
+              <stop offset="100%" stop-color="#673ab7" />
+           </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+</svg>
+
+</div>
+
+<div class="statistics" style="margin-left: 20%">
+    <div class="stats-outer">
+        <div class="stats-inner">
+            <div id="stat-number"> 82%</div>
+        </div>
+    </div>
+
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+        <defs>
+           <linearGradient id="GradientColor">
+              <stop offset="0%" stop-color="#e91e63" />
+              <stop offset="100%" stop-color="#673ab7" />
+           </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+</svg>
+
+</div>
+
+
+<div class="statistics" style="margin-left: 20%">
+    <div class="stats-outer">
+        <div class="stats-inner">
+            <div id="stat-number"> 82%</div>
+        </div>
+    </div>
+
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+        <defs>
+           <linearGradient id="GradientColor">
+              <stop offset="0%" stop-color="#e91e63" />
+              <stop offset="100%" stop-color="#673ab7" />
+           </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+</svg>
+
+</div>
+</section> -->
+<!-- End of Statistics -->
+
+
+
+<!-- Sign up  for alerts section -->
+<section id="alerts-section">
+
+    <div class="row" style="margin-left:5%; margin-top: 3%;">
+    <div id="form-section" class="col-6">
+    <h1 id="alerts-heading"> Join Big Sister Today</h1>
+    <h5 style="margin:5%;">Sign up for big sister alerts to receive notification each time a report is made in your area</h5>
+    <form style="margin-left: 6%;">
+        <div class="row"><input id="form-location" type="text" class="col-12" placeholder="Location"></div>
+        <div class="row"><input id="form-location" type="text" class="col-12" placeholder="Email Address"></div>
+        <div class="row"><input id="form-location" type="text" class="col-12" placeholder="College/University"></div>
+        <div class="row"><select id="form-location" class="col-12" placeholder="Alert Frequency">
+            <option>1 Hour</option>
+            <option>3 Hours</option>
+            <option>8 hours</option>
+            <option>Once a Day</option>
+        </select></div>
+    </form>
+        <button id="form-submit" type="submit">Join the Network</button>
+        <p>By signing up to receive alerts, you are agreeing to our <span style="text-decoration: underline; text-decoration-color: #edc0d2; font-weight: 800;">Terms of Privacy.</span>
+            Absolutely no harassment or spam reporting will be tolerated. 
+            Doing so may result in a report to a user’s university or local authorities</p>
+    </div>
+
+    <div class="col-6"><img src="/img/alertsphone.jpeg" id="alertsphone" class="col-6"></div>
+</div>
+
+
+</section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <img src="img/logo.png" alt="Logo">
+                    </div>
+                    <div class="col-12 col-sm-6 text-center text-sm-end">
+                        <div class="social-icon">
+                            <a href="#"><img src="img/nav-icon1.svg" alt="Icon"></a>
+                            <a href="#"><img src="img/nav-icon2.svg" alt="Icon"></a>
+                            <a href="#"><img src="img/nav-icon3.svg" alt="Icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
+
+    </main>
+
+    <!-- JS Files -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
