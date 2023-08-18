@@ -1,6 +1,38 @@
 # Flask stuff:
 instance/
 .webassets-cache
+website/__pycache__
+__pycache__/
 
 # Environment variables:
+.env
 website/.env
+website/static/javascript/package-lock.json
+
+# Virtual Environment
+.venv/
+
+# Databases
+databases/
+
+# cleaning the repo
+cleaning/
+Big-Sister.git/
+Big-Sister.git.bfg-report/
+
+# Not needed for now
+wsgi.py
+Procfile
+
+# package manager things
+node_modules/
+package-lock.json
+yarn.lock
+package.json
+
+# debug
+website/static/javascript/yarn.lock
+
+# misc
+notes.txt
+.mypy_cache/

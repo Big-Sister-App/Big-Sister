@@ -1,0 +1,56 @@
+name: Linters
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+      # GENERAL SETUP
+      #---------------
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Yarn
+      run: npm install -g yarn
+
+    - name: Install Dependencies
+      run: yarn install
+
+      # JS LINTING
+      #--------------
+    - name: Cache ESLint dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.eslint
+        key: ${{ runner.os }}-eslint-${{ hashFiles('**/.eslintrc') }}
+
+    - name: Install ESLint dependencies
+      run: yarn global add eslint
+
+    - name: Lint JS Files
+      run: yarn eslint --config config/.eslintrc.yml --ext .js,.jsx,.ts,.tsx
+
+      # PYTHON LINTING
+      #--------------
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install MyPy
+      run: pip install mypy
+
+    - name: Lint Python Files
+      run: mypy website/ --ignore-missing-imports
+
+      # CSS LINTING
+      #--------------
+    # - name: Install CSSLint dependencies
+    #   run: npm install -g csslint
+
+    # - name: Lint CSS Files
+    #   run: csslint --config config/.csslintrc '**/*.css'
+    #   shell: bash
