@@ -34,9 +34,9 @@ def about_us():
 
 # RESOURCES PAGE
 #---------------------------------------------
-@views.route('/resources', methods=['GET', 'POST'])
+@views.route('/mentalhealth', methods=['GET', 'POST'])
 def resources():
-    return render_template("resources.html")    
+    return render_template("mentalhealth.html")    
 
 
 # GET JSON

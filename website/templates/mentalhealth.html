@@ -1,138 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-  <div class="univpol">
+<div class="univpol">
 
-<head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-          // Get the select element
-          const selectElement = document.querySelector('#CollegeOrUniversity');
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.min.css') }}">
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                // Get the select element
+                const selectElement = document.querySelector('#CollegeOrUniversity');
+        
+                // Add an event listener for when an option is selected
+                selectElement.addEventListener('change', (event) => {
+                    // Get the value of the selected option
+                    const selectedValue = event.target.value;
 
-          // Add an event listener for when an option is selected
-          selectElement.addEventListener('change', (event) => {
-              // Get the value of the selected option
-              const selectedValue = event.target.value;
+                    // Update the window.location.href property to navigate to the selected page
+                    window.location.href = selectedValue;
+                });
 
-              // Update the window.location.href property to navigate to the selected page
-              window.location.href = selectedValue;
-          });
-      });
-  </script>
-    
-    <title> Find University Specific Mental Health Resources</title>
-</head>
+            });
 
-<body>
+            // Hotlines Selector
+        </script>
 
-    <main>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-md">
-            <div class="container">
-                <a class="navbar-brand" href="/index">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" >
-                </a>
-                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" tabindex="-1" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#map">Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Resources</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#project">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/report">Report</a>
-                        </li>
-                    </ul>
-                    <span class="navbar-text">
-                        <div class="social-icon">
-                            <a href="#"><img src="{{ url_for('static', filename='images/nav-icon1.svg') }}" alt="Icon"></a>
-                            <a href="#"><img src="{{ url_for('static', filename='images/nav-icon2.svg') }}" alt="Icon"></a>
-                            <a href="#"><img src="{{ url_for('static', filename='images/nav-icon3.svg') }}" alt="Icon"></a>
+        <title> Resources </title>
+    </head>
+
+    <body style="height: fit-content">
+
+        <main>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                    </a>
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" tabindex="-1" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#skills">Resources</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#project">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/report">Report</a>
+                            </li>
+                        </ul>
+                        <span class="navbar-text">
+                            <button class="vvd" onclick="location.href='#alerts-section';" id="navJoin-btn"><span
+                                    id="navJoin">Join the Network</span></button>
+                        </span>
+                    </div>
+                </div>
+
+            </nav>
+
+
+            <!-- Projects -->
+
+            <section class="univproject banner" id="project">
+                <div class="container row" style="margin-top: -15%">
+                    <div class="col-8" id="resourcesbanner-text">
+                        <div class="col-12">
+                            <h1>Resources</h1>
+                            <p style="width:90%">Big Sister is dedicated to providing you with an ample amount of
+                                safety, but we understand
+                                that there are circumstances that are out of the range of our expertise. In these cases,
+                                please utilize
+                                the resources below to provide you with the help you need</p>
                         </div>
-                    </span>
+                        <span class="row" id="navbuttons" style="margin-top:0%;">
+                            <button class="col-3 header_btns"
+                                onClick="document.getElementById('mentalhealth-resources').scrollIntoView();">Mental
+                                Health</button>
+                            <button class="col-3 header_btns"
+                                onClick="document.getElementById('university-resources').scrollIntoView();">University
+                                Resources</button>
+                            <button class="col-3 header_btns"
+                                onClick="document.getElementById('authorities-resources').scrollIntoView();">Local
+                                Authorities</button>
+                        </span>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/resource-embrace1.png') }}" id="embrace-resources" alt="3 Women Embracing in A Circle" class="col-4">
+                </div>
+            </section>
+
+            <section id="all-resources">
+                <div class="container" id="resources-container">
+                    <div>
+                        <h2 class="resources-headers">Hotlines<img src="{{ url_for('static', filename='images/hotlineimg.png') }}" class="resources-imgs"
+                                alt="Resources Hotline Phone"></h2>
+                        <div id="mentalhealth-resources" class="resourcesdiv col-11">
+                            <h2>Need someone to talk to?</h2>
+                            <h4>Select one of the hotlines below to be led to the corresponding number/ form of contact</h4>
+                            <select name="Hotlines" class="inputs" onchange="document.location.href=this.value">
+                                <option value="https://www.rainn.org/">Sexual Assualt (RAINN)</option>
+                                <option value="https://988lifeline.org/">Suicide and Crisis </option>
+                                <option value="https://988lifeline.org/">Stalking (Crime Victims) </option>
+                                <option value="https://screening.mhanational.org/content/need-talk-someone-warmlines/">Warm Lines (Not in crisis, just need someone to talk to)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="resource-section">
+                        <h2 class="resources-headers" style="margin-left: 50%;">
+                            <img src="img/universityimg.png" class="resources-imgs" alt="Resources University Icon">
+                            University Resources
+                        </h2>
+                        <div id="university-resources" class="resourcesdiv col-11">
+                            <h2>Campus resources available for you</h2>
+                            <h4>Select your university to learn about programs and support available for you</h4>
+                            <form>
+                                <!-- Dropdown menu -->
+                                <select id="CollegeOrUniversity" name="CollegeOrUniversity" class="inputs">
+                                    <option value="https://www.amherst.edu/offices/counseling">Amherst College</option>
+                                    <option value="https://www.babson.edu/student-life/wellness/counseling/">Babson
+                                        College</option>
+                                    <option
+                                        value="https://www.bentley.edu/campus-life/health-wellness-center/counseling-services">
+                                        Bentley University</option>
+                                    <option value="https://the-bac.edu/about-the-bac/safety-security/police-services">
+                                        Boston Architectural College</option>
+                                    <option value="https://www.bc.edu/offices/counseling-center.html">Boston College
+                                    </option>
+                                    <option value="https://www.bc.edu/offices/counseling-center.html">Boston College
+                                        Carroll School of Management</option>
+                                    <option value="https://www.bc.edu/offices/counseling-center.html">Boston College Law
+                                        School</option>
+                                    <option
+                                        value="https://www.bc.edu/content/bc-web/schools/ssw/sites/counseling-services.html">
+                                        Boston College School of Social Work</option>
+                                    <option
+                                        value="https://www.bc.edu/bc-web/schools/stm/campus-life/counseling-services.html">
+                                        Boston College School of Theology and Ministry</option>
+                                    <option value="https://bostonconservatory.berklee.edu/campus-life/counseling">Boston
+                                        Conservatory at Berklee</option>
+                                    <option value="https://www.bu.edu/shs/mental-health/">Boston University</option>
+                                    <option
+                                        value="https://www.bu.edu/com/current-students/resources-and-support-services/counseling-services/">
+                                        Boston University College of Communication</option>
+                                    <option value="https://www.bu.edu/cfa/academics-resources/counseling-services/">
+                                        Boston University College of Fine Arts</option>
+                                    <option value="https://www.bu.edu/cgs/resources/counseling/">Boston University
+                                        College of General Studies</option>
+                                    <option value="https://www.bu.edu/questrom/undergraduate/resources/counseling/">
+                                        Boston University Questrom School of Business</option>
+                                    <option value="https://www.bu.edu/dental/student-services/counseling-services/">
+                                        Boston University School of Dental Medicine</option>
+                                    <option value="https://www.bu.edu/sed/students/counseling-services/">Boston
+                                        University School of Education</option>
+                                    <option value="https://www.bu.edu/law/current-students/student-affairs/counseling/">
+                                        Boston University School of Law</option>
+                                    <option value="https://www.bumc.bu.edu/busm-studentaffairs/wellness/counseling/">
+                                        Boston University School of Medicine</option>
+                                    <option value="https://www.bu.edu/sph/students/wellness-resources/counseling/">
+                                        Boston University School of Public Health</option>
+                                    <option value="https://www.bu.edu/ssw/student-life/counseling/">Boston University
+                                        School of Social Work</option>
+                                    <option
+                                        value="https://www.bu.edu/sth/current-students/student-life/counseling-services/">
+                                        Boston University School of Theology</option>
+                                    <option value="https://www.brandeis.edu/counseling/">Brandies International Business
+                                        School</option>
+                                    <option
+                                        value="https://www.brown.edu/campus-life/support/counseling-and-psychological-services/">
+                                        Brown University</option>
+                                    <option value="https://www.cambridgecollege.edu/campus-life/counseling-center">
+                                        Cambridge College</option>
+                                    <option value="https://www.clarku.edu/offices/counseling-services/">Clark University
+                                    </option>
+                                    <option value="https://enc.edu/student-life/counseling-center/">Eastern Nazarene
+                                        College</option>
+                                    <option value="https://www.emerson.edu/departments/counseling-center">Emerson
+                                        College</option>
+                                    <option value="https://www.endicott.edu/student-life/wellness/counseling-services">
+                                        Endicott College</option>
+                                    <option
+                                        value="https://www.framingham.edu/student-life/health-wellness/counseling-center/">
+                                        Framingham State University</option>
+                                    <option value="https://www.gordon.edu/counseling">Gordon College</option>
+                                    <option
+                                        value="https://www.hbs.edu/mba/student-life/health-wellness/Pages/counseling-and-mental-health.aspx">
+                                        Harvard Business School</option>
+                                    <option value="https://hds.harvard.edu/student-life/counseling-services">Harvard
+                                        Divinity School</option>
+                                    <option
+                                        value="https://gsas.harvard.edu/student-life/health-wellness/counseling-and-mental-health">
+                                        Harvard Graduate School of Arts and Sciences</option>
+                                    <option value="https://www.gsd.harvard.edu/student-services/counseling-services/">
+                                        Harvard Graduate School of Design</option>
+                                    <option
+                                        value="https://www.gse.harvard.edu/student-life/student-support-services/counseling-and-mental-health">
+                                        Harvard Graduate School of Education</option>
+                                    <option
+                                        value="https://www.hks.harvard.edu/student-life/student-services/counseling-and-mental-health">
+                                        Harvard Kennedy School</option>
+
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="resource-section">
+                        <h2 class="resources-headers">Local Authorities<img src="{{ url_for('static', filename='images/authoritiesimg.png') }}"
+                                class="resources-imgs" alt="Police/Authorities Icon"></h2>
+                        <div id="authorities-resources" class="resourcesdiv col-11">
+                            <h2>Contact Authorities in your area </h2>
+                            <h4>Select your location to learn about how you could submit an incident report or seek help</h4>
+                            <select name="PoliceDepartments" class="inputs" onchange="document.location.href=this.value">
+                                <option value="https://police.boston.gov/index.php/report-an-incident/">Boston, MA</option>
+                                <option value="https://www.cambridgema.gov/iwantto/fileapolicereport">Cambridge, MA </option>
+                                <option value="https://www.amherstma.gov/999/After-the-Assault">Amherst, MA</option>
+                                <option value="https://www.newtonma.gov/government/police-department">Newton, MA</option>
+                                <option value="https://www.providenceri.gov/police/citizens-online-police-reporting-system/">Providence, RI</option>
+                                <option value="https://www.worcesterma.gov/police/public-records/police-reports#:~:text=To%20file%20a%20new%20report,dial%209%2D1%2D1.">Worcester, MA</option>
+                                <option value="https://www.quincyma.gov/online_reporting/index.php#:~:text=Reports%20can%20be%20filed%20online,a%20text%20with%20a%20link.">Quincy, MA </option>
+                                <option value="https://wenhampd.com/contact-us/#:~:text=The%20Wenham%20Police%20Department%20is,(978)%20468%2D5500.">Wenham, MA </option>
+                                <option value="https://www.framinghamma.gov/1868/Report-Non-Emergency-Issues">Framingham, MA </option>
+                                <option value="https://www.city.waltham.ma.us/">Waltham, MA</option>
+                                <option value="https://beverlypolice.org/contact/">Beverly, MA </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer has been left out because -->
+             <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" style="margin-top: 5%">
+                    </div>
+                    
+                    <div id="socialmediacol" class="row " style="margin-left:80%; margin-right:0%;">
+                        <img class="col-3" src="{{ url_for('static', filename='images/instagramlogo.png') }}" alt="Instagram Logo" style="width: 65px; height: 40px; margin-bottom: 0%">
+                        <img class="col-3" src="{{ url_for('static', filename='images/linkedinlogo.png') }}" alt="LinkedIn Logo" style="width: 65px; height: 40px; margin-bottom: 0%">
+                        <img class="col-3" src="{{ url_for('static', filename='images/githublogo.png') }}" alt="GitHub Logo" style="width: 65px; height: 40px; margin-bottom: 0%">
+                    </div>
+                   
                 </div>
             </div>
-
-        </nav>
-
-      
- <!-- Projects -->
-   
- <section class="univproject" id="project">
-  <div class="container">
-      <div class="row">
-          <div class="col-12 wow fadeIn" data-wow-duration="1.5s">
-              <h2>University Specific Mental Health Resources</h2>
-              <p>Big Sister connects survivors of harassment or assault to university specific couseling resources. Select your college or university from the dropdown menu to be connected to your University Campus Police. Below is a link to End Rape On Campuses website which provides a specific breakdown of the Title IX policy your university follows.</p>
-
-              <!-- Dropdown menu -->
-              <div class="form">
-                  <h2>Find Your University's Mental Health Resources</h2>
-                  <form>
-                    <select id="CollegeOrUniversity" name="CollegeOrUniversity">
-                      <option value="https://www.amherst.edu/offices/counseling">Amherst College</option>
-                      <option value="https://www.babson.edu/student-life/wellness/counseling/">Babson College</option>
-                      <option value="https://www.bentley.edu/campus-life/health-wellness-center/counseling-services">Bentley University</option>
-                      <option value="https://the-bac.edu/about-the-bac/safety-security/police-services">Boston Architectural College</option>
-                      <option value="https://www.bc.edu/offices/counseling-center.html">Boston College</option>
-                      <option value="https://www.bc.edu/offices/counseling-center.html">Boston College Carroll School of Management</option>
-                      <option value="https://www.bc.edu/offices/counseling-center.html">Boston College Law School</option>
-                      <option value="https://www.bc.edu/content/bc-web/schools/ssw/sites/counseling-services.html">Boston College School of Social Work</option>
-                      <option value="https://www.bc.edu/bc-web/schools/stm/campus-life/counseling-services.html">Boston College School of Theology and Ministry</option>
-                      <option value="https://bostonconservatory.berklee.edu/campus-life/counseling">Boston Conservatory at Berklee</option>
-                      <option value="https://www.bu.edu/shs/mental-health/">Boston University</option>
-                      <option value="https://www.bu.edu/com/current-students/resources-and-support-services/counseling-services/">Boston University College of Communication</option>
-                      <option value="https://www.bu.edu/cfa/academics-resources/counseling-services/">Boston University College of Fine Arts</option>
-                      <option value="https://www.bu.edu/cgs/resources/counseling/">Boston University College of General Studies</option>
-                      <option value="https://www.bu.edu/questrom/undergraduate/resources/counseling/">Boston University Questrom School of Business</option>
-                      <option value="https://www.bu.edu/dental/student-services/counseling-services/">Boston University School of Dental Medicine</option>
-                      <option value="https://www.bu.edu/sed/students/counseling-services/">Boston University School of Education</option>
-                      <option value="https://www.bu.edu/law/current-students/student-affairs/counseling/">Boston University School of Law</option>
-                      <option value="https://www.bumc.bu.edu/busm-studentaffairs/wellness/counseling/">Boston University School of Medicine</option>
-                      <option value="https://www.bu.edu/sph/students/wellness-resources/counseling/">Boston University School of Public Health</option>
-                      <option value="https://www.bu.edu/ssw/student-life/counseling/">Boston University School of Social Work</option>
-                      <option value="https://www.bu.edu/sth/current-students/student-life/counseling-services/">Boston University School of Theology</option>
-                      <option value="https://www.brandeis.edu/counseling/">Brandies International Business School</option>
-                      <option value="https://www.brown.edu/campus-life/support/counseling-and-psychological-services/">Brown University</option>
-                      <option value="https://www.cambridgecollege.edu/campus-life/counseling-center">Cambridge College</option>
-                      <option value="https://www.clarku.edu/offices/counseling-services/">Clark University</option>
-                      <option value="https://enc.edu/student-life/counseling-center/">Eastern Nazarene College</option>
-                      <option value="https://www.emerson.edu/departments/counseling-center">Emerson College</option>
-                      <option value="https://www.endicott.edu/student-life/wellness/counseling-services">Endicott College</option>
-                      <option value="https://www.framingham.edu/student-life/health-wellness/counseling-center/">Framingham State University</option>
-                      <option value="https://www.gordon.edu/counseling">Gordon College</option>
-                      <option value="https://www.hbs.edu/mba/student-life/health-wellness/Pages/counseling-and-mental-health.aspx">Harvard Business School</option>
-                      <option value="https://hds.harvard.edu/student-life/counseling-services">Harvard Divinity School</option>
-                      <option value="https://gsas.harvard.edu/student-life/health-wellness/counseling-and-mental-health">Harvard Graduate School of Arts and Sciences</option>
-                      <option value="https://www.gsd.harvard.edu/student-services/counseling-services/">Harvard Graduate School of Design</option>
-                      <option value="https://www.gse.harvard.edu/student-life/student-support-services/counseling-and-mental-health">Harvard Graduate School of Education</option>
-                      <option value="https://www.hks.harvard.edu/student-life/student-services/counseling-and-mental-health">Harvard Kennedy School</option>
-                     
-            </select>
-          </form>
-                        
-
-<!-- Drop Down Menu -->
-
-
+        </footer>
+        <!-- Footer End -->
+        </main>
+    </body>
+</div>
